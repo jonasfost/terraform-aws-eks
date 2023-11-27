@@ -472,35 +472,35 @@ resource "aws_eks_identity_provider_config" "this" {
 # aws-auth configmap
 ################################################################################
 
-locals {
-  # node_iam_role_arns_non_windows = distinct(
-  #   compact(
-  #     concat(
-  #       [for group in module.eks_managed_node_group : group.iam_role_arn if group.platform != "windows"],
-  #       [for group in module.self_managed_node_group : group.iam_role_arn if group.platform != "windows"],
-  #       var.aws_auth_node_iam_role_arns_non_windows,
-  #     )
-  #   )
-  # )
+# locals {
+#   node_iam_role_arns_non_windows = distinct(
+#     compact(
+#       concat(
+#         [for group in module.eks_managed_node_group : group.iam_role_arn if group.platform != "windows"],
+#         [for group in module.self_managed_node_group : group.iam_role_arn if group.platform != "windows"],
+#         var.aws_auth_node_iam_role_arns_non_windows,
+#       )
+#     )
+#   )
 
-  # node_iam_role_arns_windows = distinct(
-  #   compact(
-  #     concat(
-  #       [for group in module.eks_managed_node_group : group.iam_role_arn if group.platform == "windows"],
-  #       [for group in module.self_managed_node_group : group.iam_role_arn if group.platform == "windows"],
-  #       var.aws_auth_node_iam_role_arns_windows,
-  #     )
-  #   )
-  # )
+#   node_iam_role_arns_windows = distinct(
+#     compact(
+#       concat(
+#         [for group in module.eks_managed_node_group : group.iam_role_arn if group.platform == "windows"],
+#         [for group in module.self_managed_node_group : group.iam_role_arn if group.platform == "windows"],
+#         var.aws_auth_node_iam_role_arns_windows,
+#       )
+#     )
+#   )
 
-  # fargate_profile_pod_execution_role_arns = distinct(
-  #   compact(
-  #     concat(
-  #       [for group in module.fargate_profile : group.fargate_profile_pod_execution_role_arn],
-  #       var.aws_auth_fargate_profile_pod_execution_role_arns,
-  #     )
-  #   )
-  # )
+#   fargate_profile_pod_execution_role_arns = distinct(
+#     compact(
+#       concat(
+#         [for group in module.fargate_profile : group.fargate_profile_pod_execution_role_arn],
+#         var.aws_auth_fargate_profile_pod_execution_role_arns,
+#       )
+#     )
+#   )
 
 #   aws_auth_configmap_data = {
 #     mapRoles = yamlencode(concat(
